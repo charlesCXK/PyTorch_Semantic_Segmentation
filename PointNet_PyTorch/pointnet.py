@@ -90,7 +90,7 @@ class PointNetClassify(nn.Module):
         x = self.dropout(x)
         x = self.fc3(x)
 
-        x = F.log_softmax(x, dim=0)
+        x = F.log_softmax(x, dim=1)
         return x
 
 '''
