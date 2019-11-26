@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26249f27-8aa3-4f37-be58-0590b58a0999" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DeepLabV3plus_PyTorch/deeplabv3plus.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DenseASPP_PyTorch/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DenseASPP_PyTorch/denseaspp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DenseASPP_PyTorch/net.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DenseASPP_PyTorch/resnet101.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepLabV3_PyTorch/deeplabv3.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepLabV3_PyTorch/deeplabv3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepLabV3_PyTorch/resnet101.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepLabV3_PyTorch/resnet101.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepLabV3plus_PyTorch/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/DeepLabV3plus_PyTorch/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepLabV3plus_PyTorch/decoder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepLabV3plus_PyTorch/encoder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepLabV3plus_PyTorch/resnet101.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepLabV3plus_PyTorch/resnet101.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RDFNet_PyTorch/ResNet101.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RDFNet_PyTorch/blocks.py" beforeDir="false" afterPath="$PROJECT_DIR$/RDFNet_PyTorch/blocks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RDFNet_PyTorch/rdfnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/RDFNet_PyTorch/rdfnet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RefineNet_PyTorch/RefineNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/RefineNet_PyTorch/RefineNet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RefineNet_PyTorch/blocks.py" beforeDir="false" afterPath="$PROJECT_DIR$/RefineNet_PyTorch/blocks.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +14,7 @@
     <SUITE FILE_PATH="coverage/PyTorch_Semantic_Segmentation$RefineNet.coverage" NAME="RefineNet Coverage Results" MODIFIED="1574761058351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RefineNet_PyTorch" />
     <SUITE FILE_PATH="coverage/PyTorch_Semantic_Segmentation$3DGNN.coverage" NAME="3DGNN Coverage Results" MODIFIED="1574760350556" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/3DGNN_PyTorch" />
     <SUITE FILE_PATH="coverage/PyTorch_Semantic_Segmentation$deeplabv3.coverage" NAME="deeplabv3 Coverage Results" MODIFIED="1574761631242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepLabV3_PyTorch" />
+    <SUITE FILE_PATH="coverage/PyTorch_Semantic_Segmentation$pspnet.coverage" NAME="pspnet Coverage Results" MODIFIED="1574763546937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/PSPNet_PyTorch" />
     <SUITE FILE_PATH="coverage/PyTorch_Semantic_Segmentation$rdfnet.coverage" NAME="rdfnet Coverage Results" MODIFIED="1574762028176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RDFNet_PyTorch" />
     <SUITE FILE_PATH="coverage/PyTorch_Semantic_Segmentation$deeplabv3plus.coverage" NAME="deeplabv3plus Coverage Results" MODIFIED="1574761833601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepLabV3plus_PyTorch" />
     <SUITE FILE_PATH="coverage/PyTorch_Semantic_Segmentation$fcn8s.coverage" NAME="fcn8s Coverage Results" MODIFIED="1574760783701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FCN_PyTorch" />
@@ -78,12 +63,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="311">
-                <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+              <first_editor relative-caret-position="121">
+                <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -92,11 +77,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FastFCN_PyTorch/fastfcn.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="81">
-              <caret line="195" column="7" selection-start-line="195" selection-start-column="7" selection-end-line="195" selection-end-column="7" />
+              <caret line="195" column="65" selection-start-line="195" selection-start-column="65" selection-end-line="195" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PSPNet_PyTorch/pspnet.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="91">
+              <caret line="76" column="109" selection-start-line="76" selection-start-column="109" selection-end-line="76" selection-end-column="109" />
+              <folding>
+                <element signature="e#54#63#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -104,15 +101,6 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RDFNet_PyTorch/net.png">
           <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DeepLabV3plus_PyTorch/resnet101.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="114" column="43" selection-start-line="114" selection-start-column="43" selection-end-line="114" selection-end-column="43" />
-            </state>
-          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -142,7 +130,11 @@
       <find>resnet</find>
       <find>ResNet101</find>
       <find>upsample</find>
+      <find>norm_act</find>
     </findStrings>
+    <replaceStrings>
+      <replace>norm_layer</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -162,8 +154,9 @@
         <option value="$PROJECT_DIR$/DenseASPP_PyTorch/denseaspp.py" />
         <option value="$PROJECT_DIR$/RDFNet_PyTorch/rdfnet.py" />
         <option value="$PROJECT_DIR$/RDFNet_PyTorch/blocks.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/FastFCN_PyTorch/fastfcn.py" />
+        <option value="$PROJECT_DIR$/PSPNet_PyTorch/pspnet.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -184,6 +177,11 @@
             <path>
               <item name="PyTorch_Semantic_Segmentation" type="b2602c69:ProjectViewProjectNode" />
               <item name="PyTorch_Semantic_Segmentation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PyTorch_Semantic_Segmentation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PyTorch_Semantic_Segmentation" type="462c0819:PsiDirectoryNode" />
+              <item name="PSPNet_PyTorch" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -219,29 +217,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.fastfcn">
-    <configuration name="deeplabv3" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="PyTorch_Semantic_Segmentation" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DeepLabV3_PyTorch" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DeepLabV3_PyTorch/deeplabv3.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.pspnet">
     <configuration name="deeplabv3plus" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PyTorch_Semantic_Segmentation" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -308,6 +284,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="pspnet" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="PyTorch_Semantic_Segmentation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PSPNet_PyTorch" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PSPNet_PyTorch/pspnet.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="rdfnet" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PyTorch_Semantic_Segmentation" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -332,11 +330,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.pspnet" />
         <item itemvalue="Python.fastfcn" />
         <item itemvalue="Python.rdfnet" />
         <item itemvalue="Python.denseaspp" />
         <item itemvalue="Python.deeplabv3plus" />
-        <item itemvalue="Python.deeplabv3" />
       </list>
     </recent_temporary>
   </component>
@@ -351,15 +349,15 @@
       <option name="presentableId" value="Default" />
       <updated>1574760315075</updated>
       <workItem from="1574760316597" duration="880000" />
-      <workItem from="1574761586588" duration="1189000" />
+      <workItem from="1574761586588" duration="1928000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2069000" />
+    <option name="totallyTimeSpent" value="2808000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="50" y="60" width="1486" height="932" extended-state="0" />
+    <frame x="307" y="93" width="1486" height="932" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13850416" />
@@ -532,22 +530,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/FastFCN_PyTorch/fastfcn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="195" column="65" selection-start-line="195" selection-start-column="65" selection-end-line="195" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PSPNet_PyTorch/pspnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="76" column="109" selection-start-line="76" selection-start-column="109" selection-end-line="76" selection-end-column="109" />
+          <folding>
+            <element signature="e#54#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="311">
-            <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+          <first_editor relative-caret-position="121">
+            <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
           </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FastFCN_PyTorch/fastfcn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="195" column="7" selection-start-line="195" selection-start-column="7" selection-end-line="195" selection-end-column="7" />
         </state>
       </provider>
     </entry>

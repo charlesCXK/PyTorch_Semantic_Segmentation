@@ -21,6 +21,10 @@ Implement some models of semantic segmentation in PyTorch, easy to run.
 
 <img src='RefineNet_PyTorch/net.png' width='450'>
 
+### PSPNet (CVPR 2017)
+
+<img src='PSPNet_PyTorch/net.png'>
+
 ### PointNet (CVPR 2017)
 
 <img src='PointNet_PyTorch/net.png'>
