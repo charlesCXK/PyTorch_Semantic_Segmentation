@@ -101,7 +101,7 @@ class BaseRefineNet4Cascade(nn.Module):
         path_2 = self.refinenet2(path_3, layer_2_rn)
         path_1 = self.refinenet1(path_2, layer_1_rn)
         out = self.output_conv(path_1)
-        out = nn.functional.upsample(out, size=x.size()[-2:], mode='bilinear', align_corners=True)
+        out = nn.functional.interpolate(out, size=x.size()[-2:], mode='bilinear', align_corners=True)
         return out
 
     # def named_parameters(self):

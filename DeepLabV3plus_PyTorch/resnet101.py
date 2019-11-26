@@ -53,7 +53,7 @@ class Bottleneck(nn.Module):
 
 
 class ResNet(nn.Module):
-    def __init__(self, block, layers, num_classes, dilation=[1,1,1,1], bn_momentum=0.0003, is_fpn=False):
+    def __init__(self, block, layers, dilation=[1,1,1,1], bn_momentum=0.0003, is_fpn=False):
         self.inplanes = 128
         self.is_fpn = is_fpn
         super(ResNet, self).__init__()
@@ -97,13 +97,10 @@ class ResNet(nn.Module):
             x = self.relu2(self.bn2(self.conv2(x)))
             x = self.relu3(self.bn3(self.conv3(x)))
             x = self.maxpool(x)
-
             start_module = 2
         features = []
         for i in range(start_module, end_module+1):
             x = eval('self.layer%d'%(i-1))(x)
-            if start_module == i:
-                low_feature = x
             features.append(x)
 
         if self.is_fpn:
@@ -112,11 +109,11 @@ class ResNet(nn.Module):
             else:
                 return tuple(features)
         else:
-            return x, low_feature
+            return x
 
 
-def get_resnet101(num_classes=19, dilation=[1,1,1,1], bn_momentum=0.0003, is_fpn=False):
-    model = ResNet(Bottleneck,[3, 4, 23, 3], num_classes, dilation=dilation, bn_momentum=bn_momentum, is_fpn=is_fpn)
+def get_resnet101(dilation=[1,1,1,1], bn_momentum=0.0003, is_fpn=False):
+    model = ResNet(Bottleneck, [3, 4, 23, 3], dilation=dilation, bn_momentum=bn_momentum, is_fpn=is_fpn)
     return model
 
 

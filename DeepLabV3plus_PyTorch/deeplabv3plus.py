@@ -16,7 +16,7 @@ class ASPP(nn.Module):
                  out_channels,
                  dilation_rates=(12, 24, 36),
                  hidden_channels=256,
-                 norm_act=nn.BatchNorm2d,
+                 norm_layer=nn.BatchNorm2d,
                  pooling_size=None):
         super(ASPP, self).__init__()
         self.pooling_size = pooling_size
@@ -30,14 +30,14 @@ class ASPP(nn.Module):
             nn.Conv2d(in_channels, hidden_channels, 3, bias=False, dilation=dilation_rates[2],
                       padding=dilation_rates[2])
         ])
-        self.map_bn = norm_act(hidden_channels * 4)
+        self.map_bn = norm_layer(hidden_channels * 4)
 
         self.global_pooling_conv = nn.Conv2d(in_channels, hidden_channels, 1, bias=False)
-        self.global_pooling_bn = norm_act(hidden_channels)
+        self.global_pooling_bn = norm_layer(hidden_channels)
 
         self.red_conv = nn.Conv2d(hidden_channels * 4, out_channels, 1, bias=False)
         self.pool_red_conv = nn.Conv2d(hidden_channels, out_channels, 1, bias=False)
-        self.red_bn = norm_act(out_channels)
+        self.red_bn = norm_layer(out_channels)
 
         self.leak_relu = nn.LeakyReLU()
 
@@ -82,28 +82,65 @@ class ASPP(nn.Module):
             pool = nn.functional.pad(pool, pad=padding, mode="replicate")
         return pool
 
+class Head(nn.Module):
+    def __init__(self, classify_classes, norm_layer=nn.BatchNorm2d, bn_momentum=0.0003):
+        super(Head, self).__init__()
 
-class DeepLabV3(nn.Module):
+        self.classify_classes = classify_classes
+        self.aspp = ASPP(2048, 256, [6, 12, 18], norm_layer=norm_layer)
+
+        self.reduce = nn.Sequential(
+            nn.Conv2d(256, 48, 1, bias=False),
+            norm_layer(48, momentum=bn_momentum),
+            nn.ReLU(),
+            )
+
+        self.last_conv = nn.Sequential(nn.Conv2d(304, 256, kernel_size=3, stride=1, padding=1, bias=False),
+                                       norm_layer(256, momentum=bn_momentum),
+                                       nn.ReLU(),
+                                       nn.Conv2d(256, 256, kernel_size=3, stride=1, padding=1, bias=False),
+                                       norm_layer(256, momentum=bn_momentum),
+                                       nn.ReLU(),
+                                       )
+
+
+        self.classify = nn.Conv2d(in_channels=256, out_channels=self.classify_classes, kernel_size=1,
+                                        stride=1, padding=0, dilation=1, bias=True)
+
+    def forward(self, f_list):
+        f = f_list[-1]
+        f = self.aspp(f)
+
+        low_level_features = f_list[0]
+        low_h, low_w = low_level_features.size(2), low_level_features.size(3)
+        low_level_features = self.reduce(low_level_features)
+
+        f = F.interpolate(f, size=(low_h, low_w), mode='bilinear', align_corners=True)
+        f = torch.cat((f, low_level_features), dim=1)
+        f = self.last_conv(f)
+
+        pred = self.classify(f)
+        return pred
+
+class DeepLabV3plus(nn.Module):
     def __init__(self, class_num, bn_momentum=0.01):
-        super(DeepLabV3, self).__init__()
-        self.Resnet101 = resnet101.get_resnet101(dilation=[1, 1, 1, 2], bn_momentum=bn_momentum, is_fpn=False)
-        self.ASPP = ASPP(2048, 256, [6, 12, 18], norm_act=nn.BatchNorm2d)
-        self.classify = nn.Conv2d(256, class_num, 1, bias=True)
+        super(DeepLabV3plus, self).__init__()
+        self.Resnet101 = resnet101.get_resnet101(dilation=[1, 1, 1, 2], bn_momentum=bn_momentum, is_fpn=True)
+        self.head = Head(class_num, norm_layer=nn.BatchNorm2d)
 
     def forward(self, input):
         x = self.Resnet101(input)
 
-        aspp = self.ASPP(x)     # 空间金字塔池化
-        predict = self.classify(aspp)
+        pred = self.head(x)
 
-        output= F.interpolate(predict, size=input.size()[2:4], mode='bilinear', align_corners=True)
+        output= F.interpolate(pred, size=input.size()[2:4], mode='bilinear', align_corners=True)
         return output
 
 def main():
     num_classes = 10
-    in_batch, inchannel, in_h, in_w = 4, 3, 28, 28
+    in_batch, inchannel, in_h, in_w = 4, 3, 128, 128
     x = torch.randn(in_batch, inchannel, in_h, in_w)
-    net = DeepLabV3(class_num=num_classes)
+    net = DeepLabV3plus(class_num=num_classes)
     out = net(x)
     print(out.shape)
 

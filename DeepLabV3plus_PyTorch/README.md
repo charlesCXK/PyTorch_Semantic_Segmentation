@@ -7,7 +7,7 @@
 ### II. Usage
 
 ```shell
-$ python3 decoder.py
+$ python3 deeplabv3plus.py
 ```
 
 ### III. Others

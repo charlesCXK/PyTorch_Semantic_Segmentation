@@ -56,7 +56,7 @@ class MultiResolutionFusion(nn.Module):
         max_size = self.max_size#xs[-1].size()[-2:]     # max size of these feature, in default situation, the last data in the data-array has the biggest shape
         output = self.resolve0(xs[0])
         if xs[0].size()[-2] != max_size[0]:
-            output = nn.functional.upsample(
+            output = nn.functional.interpolate(
                 output,
                 size=max_size,
                 mode='bilinear',
@@ -66,7 +66,7 @@ class MultiResolutionFusion(nn.Module):
             this_feature = self.__getattr__("resolve{}".format(i))(x)
             # upsamples all (smaller) feature maps to the largest resolution of the inputs
             if xs[i].size()[-2] != max_size[0]:
-                this_feature = nn.functional.upsample(
+                this_feature = nn.functional.interpolate(
                     this_feature,
                     size=max_size,
                     mode='bilinear',

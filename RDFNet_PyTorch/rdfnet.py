@@ -6,15 +6,15 @@ import numpy as np
 from torch.autograd import Variable
 from blocks import (MMFBlock, RefineNetBlock, ResidualConvUnit,
                       RefineNetBlockImprovedPooling, ChainedResidualPool)
-from ResNet101 import resnet101
+from resnet101 import get_resnet101
 
 BatchNorm2d = nn.BatchNorm2d
 
 class RDF(nn.Module):
     def __init__(self, input_size, num_classes, bn_momentum=0.0003, features=256, pretained=False, model_path=''):
         super(RDF, self).__init__()
-        self.Resnet101rgb = resnet101(num_classes, bn_momentum, pretained, model_path)
-        self.Resnet101hha = resnet101(num_classes, bn_momentum, pretained, model_path)
+        self.Resnet101rgb = get_resnet101(bn_momentum=bn_momentum)
+        self.Resnet101hha = get_resnet101(bn_momentum=bn_momentum)
 
         # This is the four stages of each resnet.
         self.rgblayer1 = nn.Sequential(self.Resnet101rgb.conv1, self.Resnet101rgb.bn1, self.Resnet101rgb.relu1,
@@ -99,7 +99,7 @@ class RDF(nn.Module):
         path_2 = self.refinenet2(path_3, layer_2_rn)
         path_1 = self.refinenet1(path_2, layer_1_rn)
         out = self.output_conv(path_1)
-        out = nn.functional.upsample(out, size=rgb.size()[-2:], mode='bilinear', align_corners=True)
+        out = nn.functional.interpolate(out, size=rgb.size()[-2:], mode='bilinear', align_corners=True)
 
         return out
 
