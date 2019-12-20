@@ -1,6 +1,6 @@
 '''
 [description]
-DenseASPP
+FastFCN
 '''
 
 import os

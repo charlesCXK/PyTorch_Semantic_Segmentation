@@ -1,6 +1,6 @@
 '''
 [description]
-对特征图进行金字塔池化操作。然后将最终特征整合到 256 维
+PSPNet
 '''
 
 import os
@@ -71,9 +71,9 @@ class PyramidPooling(nn.Module):
         ppm_out = self.conv6(ppm_out)
         return ppm_out
 
-class DeepLabV3plus(nn.Module):
+class PSPNet(nn.Module):
     def __init__(self, class_num, bn_momentum=0.01):
-        super(DeepLabV3plus, self).__init__()
+        super(PSPNet, self).__init__()
         self.Resnet101 = resnet101.get_resnet101(dilation=[1, 1, 1, 2], bn_momentum=bn_momentum, is_fpn=False)
         self.psp_layer = PyramidPooling('psp', class_num, 2048, norm_layer=nn.BatchNorm2d)
 
@@ -89,7 +89,7 @@ def main():
     num_classes = 10
     in_batch, inchannel, in_h, in_w = 4, 3, 128, 128
     x = torch.randn(in_batch, inchannel, in_h, in_w)
-    net = DeepLabV3plus(class_num=num_classes)
+    net = PSPNet(class_num=num_classes)
     out = net(x)
     print(out.shape)
 
